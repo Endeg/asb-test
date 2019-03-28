@@ -20,6 +20,7 @@ import java.util.stream.IntStream;
 public class TestAsb {
 
     private final Config config = Config.fromProperties("config.properties");
+    private List<QueueClient> clients;
 
     public static void main(String[] args) {
         new TestAsb().run();
@@ -57,7 +58,7 @@ public class TestAsb {
     }
 
     private void run() {
-        createListenClients();
+        clients = createListenClients();
         forever();
     }
 
