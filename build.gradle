@@ -1,0 +1,19 @@
+repositories {
+    jcenter()
+}
+
+apply plugin: 'java'
+
+group = 'some.project'
+sourceCompatibility = 9
+
+dependencies {
+    compileOnly('org.projectlombok:lombok:1.16.20')
+    compile('com.microsoft.azure:azure-servicebus:1.2.11')
+    compile('org.slf4j:slf4j-simple:1.7.5')
+}
+
+task(runTestAsb, dependsOn: 'classes', type: JavaExec) {
+    main = 'some.project.TestAsb'
+    classpath = sourceSets.main.runtimeClasspath
+}
